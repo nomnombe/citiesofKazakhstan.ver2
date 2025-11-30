@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karaganda - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section class="city-hero">
+    <div class="city-hero-content">
+        <h1 style="color: #FFD700;">Караганда</h1>
+      <p style="color: #FFD700">Административный центр Карагандинской области, крупнейший город Центрального Казахстана.</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Караганда</h2>
+      <p>Караганда - угольная промышленность, добыча угля с месторождений Карагандинского угольного бассейна.</p>
+      <p><strong>Население:</strong> около 550 тыс  человек</p>
+      <p><strong>Основан:</strong> в 1930-е годы  как центр добычи угля; активно развивался в советский период.</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>Караганда - Название города связано с названием степного урочища «Караганда» — местной разновидности кустарника карагана.В советское время Караганда стала крупным промышленным и культурным центром региона, а также местом размещения ГУЛАГов (Карлаг).Город является крупным транспортным узлом с железнодорожными и автомобильными путями..</p>
+
+      <div class="photo-slider">
+        <img src="images/kar1.jpg" alt="Старая Караганда" class="active">
+        <img src="images/kar2.jpg" alt="Современная Караганда">
+        <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Достопримечательности -->
+    <section id="astana-attractions">
+
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/kar3.jpg" alt="Музей истории города и шахтёрской промышленности">
+          <p>Музей истории города и шахтёрской промышленности - экспозиции о развитии угольной отрасли и жизни шахтёров.</p>
+        </li>
+        <li>
+          <img src="images/kar4.jpg" alt="Свято-Троицкий собор ">
+          <p>Свято-Троицкий собор - один из значимых православных храмов города Караганда, Казахстан.</p>
+        </li>
+        
+      </ul>
+    </section>
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p> Карагандинский историко-краеведческий музей, музей шахтёрской славы.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>Караганда — один из самых индустриальных городов Казахстана, с богатой шахтёрской историей.</li>
+        <li>В советское время здесь находился Карлаг — крупный исправительно-трудовой лагерь.</li>
+        <li>Город называют «шахтёрской столицей Казахстана»</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

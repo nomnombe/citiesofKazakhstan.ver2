@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алматы - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Верхний блок для Алматы -->
+  <section class="city-hero">
+    <div class="city-hero-content">
+    	<h1 style="color: #FFD700;">Алматы</h1>
+    	<p style="color: #FFD700">Культурная столица Юга</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Алматы</h2>
+      <p>Алматы — крупнейший город Казахстана, расположенный у подножия Заилийского Алатау. До 1997 года он был столицей страны, а сегодня является её культурным центром.</p>
+      <p><strong>Население:</strong> около 2 миллионов человек</p>
+      <p><strong>Основан:</strong> 1854 год (как укрепление Верный)</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>Алматы имеет богатую историю, начиная с древнего поселения Алмату, существовавшего на Великом шёлковом пути. Город пережил периоды бурного роста, разрушительных землетрясений и масштабной реконструкции. В советское время Алматы стал важным промышленным и научным центром, а после обретения независимости Казахстана сохранил статус ведущего мегаполиса страны.</p>
+
+      <div class="photo-slider">
+        <img src="images/old-almaty.jpg" alt="Старый Алматы" class="active">
+        <img src="images/new-almaty.jpg" alt="Современный Алматы">
+        <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Достопримечательности -->
+    <section id="almaty-attractions">
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/kok-tobe.jpg" alt="Кок-Тобе">
+          <p>Кок-Тобе — живописная гора с панорамным видом на город</p>
+        </li>
+        <li>
+          <img src="images/big-almaty-lake.jpg" alt="Большое Алматинское озеро">
+          <p>Большое Алматинское озеро — одно из самых красивых мест в окрестностях</p>
+        </li>
+        <li>
+          <img src="images/medeu.jpg" alt="Медеу">
+          <p>Медеу — знаменитый высокогорный каток, где ставились мировые рекорды</p>
+        </li>
+        <li>
+          <img src="images/panfilov-park.jpg" alt="Парк имени 28 гвардейцев-панфиловцев">
+          <p>Парк имени 28 гвардейцев-панфиловцев и Вознесенский кафедральный собор</p>
+        </li>
+        <li>
+          <img src="images/shymbulak.jpg" alt="Шымбулак">
+          <p>Шымбулак — популярный горнолыжный курорт Алматы</p>
+        </li>
+        <li>
+          <img src="images/museum.jpg" alt="Центральный государственный музей">
+          <p>Центральный государственный музей — крупнейший музей Казахстана</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>Алматы известен как культурная столица Казахстана. Здесь проходят международные фестивали, выставки и концерты. В городе много театров, музеев и галерей.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>В Алматы растёт яблоня Сиверса, предок всех современных сортов яблок</li>
+        <li>Город считается «сердцем» казахстанского IT и креативных индустрий</li>
+        <li>Алматы — один из самых зелёных мегаполисов СНГ</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

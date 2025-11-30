@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astana - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="city-hero">
+    <div class="city-hero-content">
+    	<h1 style="color: #FFD700;">Балхаш</h1>
+    	<p style="color: #FFD700">Город у уникального полупресного озера — жемчужины Казахстана</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Балхаш</h2>
+      <p>Балхаш — город в Карагандинской области Казахстана, расположенный на северном берегу озера Балхаш. Город образовался в 1930-х годах вокруг строительства медеплавильного завода и является важным промышленным и туристическим центром Казахстана.</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>В конце 1920-х годов в районе Балхаша были обнаружены крупные месторождения меди. В 1928–1929 годах началось строительство медеплавильного завода, вокруг которого возник рабочий посёлок Прибалхашстрой. 11 апреля 1937 года поселок получил статус города и был назван Балхаш.</p>
+
+
+    <div class="photo-slider">
+      <img src="images/balkhash staryi.jpg" alt="Старый Балхаш" class="active">
+      <img src="images/balkhash star.jpg" alt="Современный Балхаш">
+      <div class="slider-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+    <!-- Достопримечательности -->
+    <section id="astana-attractions">
+
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/balkhash ozero.jpg" alt="Байтерек">
+          <p>Озеро Балхаш — уникальное озеро: одна часть его пресная, другая — солёная.</p>
+        </li>
+        <li>
+          <img src="images/balkhash plaz.jpg" alt="Хан Шатыр">
+          <p>Пляжи Балхаша — популярные зоны отдыха с бирюзовой водой.</p>
+        </li>
+        <li>
+          <img src="images/balkhash muzei.jpg" alt="Дворец Мира и Согласия">
+          <p>Краеведческий музей — рассказывает историю города и озера.</p>
+        </li>
+        <li>
+          <img src="images/mechet bal.jpg" alt="Национальный музей">
+          <p>Центральная мечеть — духовный символ города.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>В Балхаше проходят фестивали, концерты, спортивные мероприятия. Развитие города сочетает промышленное наследие, природную красоту озера и современную инфраструктуру.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+      <li>Озеро Балхаш одновременно пресное и солёное.</li>
+      <li>Вода озера часто имеет яркий бирюзовый оттенок.</li>
+      <li>Балхаш — центр цветной металлургии Казахстана.</li>
+      <li>Город возник вокруг одного из крупнейших медеплавильных заводов.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

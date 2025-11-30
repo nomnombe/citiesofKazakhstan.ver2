@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алатау — Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Города Казахстана</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История страны</a></li>
+      <li><a href="about.html">О нас</a></li>
+      <li><a href="karta.html">Карта</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Герой города -->
+<section class="city-hero" 
+style="background: url('images/altau-hero.jpg') center/cover no-repeat;">
+  <div class="city-hero-content">
+    <h1 style="color: #FFD700;">Алатау</h1>
+    <p style="color: #FFD700">Живописный город на востоке Казахстана с богатой историей и культурой</p>
+  </div>
+</section>
+
+<main class="text-page">
+
+  <!-- Основная информация -->
+  <section class="text-section">
+    <h2>О городе</h2>
+    <p>Алатау — город, расположенный в восточной части Казахстана, известный своими природными красотами и историческими памятниками. Город образовался вокруг горнодобывающей промышленности.</p>
+  </section>
+
+  <!-- История + слайдер -->
+  <section class="text-section">
+    <h2>История</h2>
+    <p>Алатау возник в начале XX века как поселение для работников горнодобывающей отрасли. С тех пор город постепенно развивался, получив статус города в середине века. Сегодня Алтау сочетает промышленное наследие и природные красоты.</p>
+
+    <div class="photo-slider">
+      <img src="images/alatau old.jpg" class="active" alt="Алтау старый">
+      <img src="images/alatau now.jpg" alt="Алтау современный">
+      <div class="slider-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+    <!-- Достопримечательности -->
+    <section id="astana-attractions">
+
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/горы.jpg" alt="Байтерек">
+          <p>Горы Алатау - живописные горы, популярные среди туристов и альпинистов.</p>
+        </li>
+        <li>
+          <img src="images/озеро.jpg" alt="Хан Шатыр">
+          <p>Озеро Алатау - красивое озеро с чистой водой, любимое место отдыха жителей и туристов.</p>
+        </li>
+      </ul>
+    </section>
+
+  <!-- Культура -->
+  <section class="text-section">
+    <h2>Культура</h2>
+    <p>В Алатау проходят городские фестивали, концерты, выставки и культурные мероприятия. Город сохраняет уникальное сочетание природы и истории.</p>
+  </section>
+
+  <!-- Интересные факты -->
+  <section class="text-section">
+    <h2>Интересные факты</h2>
+    <ul class="facts-grid">
+      <li>Алатау расположен на востоке Казахстана в живописной горной зоне.</li>
+      <li>Город известен своей природой и туристическими маршрутами.</li>
+      <li>Местные музеи рассказывают о традициях и истории региона.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+</footer>
+
+<script>
+  const slider = document.querySelector('.photo-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = slider.querySelector('#prev');
+  const nextBtn = slider.querySelector('#next');
+  let current = 0;
+
+  function showImage(index) {
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+  }
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алтай — Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Города Казахстана</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История страны</a></li>
+      <li><a href="about.html">О нас</a></li>
+      <li><a href="karta.html">Карта</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Герой города -->
+<section class="city-hero" 
+style="background: url('images/altay-hero.jpg') center/cover no-repeat;">
+  <div class="city-hero-content">
+    <h1 style="color: #FFD700;">Алтай</h1>
+    <p style="color: #FFD700">Живописный город на востоке Казахстана с богатой историей и культурой</p>
+  </div>
+</section>
+
+<main class="text-page">
+
+  <!-- Основная информация -->
+  <section class="text-section">
+    <h2>О городе</h2>
+    <p>Алтай — город на востоке Казахстана, известный своими горами, реками и историческими памятниками. Город возник как центр горнодобывающей и лесной промышленности, постепенно превратившись в туристический центр региона.</p>
+  </section>
+
+  <!-- История + слайдер -->
+  <section class="text-section">
+    <h2>История</h2>
+    <p>Алтай появился в начале XX века вокруг добычи полезных ископаемых. Город получил официальный статус в середине века. Сегодня Алтай сочетает промышленное наследие с уникальной природой и активной культурной жизнью.</p>
+
+    <div class="photo-slider">
+      <img src="images/altai old.jpg" class="active" alt="Алтай старый">
+      <img src="images/altai now.jpg" alt="Алтай современный">
+      <div class="slider-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Достопримечательности -->
+   <section id="astana-attractions">
+     <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/altai gori.jpg" alt="Байтерек">
+          <p>Горы Алтай - живописные горы, популярные среди туристов, альпинистов и любителей походов.</p>
+        </li>
+        <li>
+          <img src="images/altay lake.jpg" alt="Хан Шатыр">
+          <p>Озеро Алтай - красивое озеро с прозрачной водой, любимое место отдыха жителей и туристов.</p>
+        </li>
+        <li>
+          <img src="images/altai park.jpg" alt="Хан Шатыр">
+          <p>Городской парк - зелёная зона для прогулок и культурных мероприятий на открытом воздухе.</p>
+        </li>
+      </ul>
+    </section>
+
+
+  <!-- Культура -->
+  <section class="text-section">
+    <h2>Культура</h2>
+    <p>Алтай славится своими культурными традициями: здесь проходят этнические фестивали с национальными танцами и музыкой, выставки местных художников и ремесленников. Город активно развивает туристические маршруты, включая исторические экскурсии и мастер-классы по народным промыслам. Местные театры и концертные залы предлагают богатую программу событий для жителей и гостей города.</p>
+  </section>
+
+  <!-- Интересные факты -->
+  <section class="text-section">
+    <h2>Интересные факты</h2>
+    <ul class="facts-grid">
+      <li>Алтай расположен в живописной горной зоне на востоке Казахстана.</li>
+      <li>Город известен туристическими маршрутами и активным отдыхом на природе.</li>
+      <li>В Алтае ежегодно проводятся этнические фестивали и выставки ремесел.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+</footer>
+
+<script>
+  const slider = document.querySelector('.photo-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = slider.querySelector('#prev');
+  const nextBtn = slider.querySelector('#next');
+  let current = 0;
+
+  function showImage(index) {
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+  }
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+</script>
+
+</body>
+</html>

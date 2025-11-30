@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kokshetay - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section class="city-hero">
+    <div class="city-hero-content">
+        <h1 style="color: #FFD700;">Кокшетау</h1>
+      <p style="color: #FFD700">Административный центр Акмолинской области</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Кокшетау</h2>
+      <p>Кокшетау - промышленно-административный центр региона.</p>
+      <p><strong>Население:</strong> около 150 тыс  человек</p>
+      <p><strong>Основан:</strong> в  1824 год как военная крепость, первоначально назывался Кокшетауская крепость.</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>Кокшетау — промышленно-административный центр региона.Изначально крепость была частью оборонительной линии для защиты южных рубежей Российской империи.В XX веке развивается промышленность и образование; город становится крупным административным и культурным центром области.Город расположен на территории Кокшетауской возвышенности, в окружении холмов и лесов.Рядом находятся озёра Боровое, Шортанды, Жасылколь и другие живописные места, которые привлекают туристов.Туризм активно развивается благодаря близости к национальному парку Бурабай (Боровое).</p>
+
+      <div class="photo-slider">
+        <img src="images/koksh1.jpg" alt="Старый Кокшетау" class="active">
+        <img src="images/koksh2.jpg" alt="Современный Кокшетау">
+        <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Достопримечательности -->
+    <section id="astana-attractions">
+
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/koksh3.jpg" alt="Озеро Боровое (Бурабай)">
+          <p>Озеро Боровое (Бурабай) - Чистая вода, живописные леса, скалы и пляжи.</p>
+        </li>
+        <li>
+          <img src="images/koksh4.jpg" alt="Кокшетауские горы">
+          <p>Кокшетауские горы - Небольшие горные массивы с панорамными видами на город и окрестные озёра.опулярное место для пеших прогулок, туризма и фотографирования.</p>
+        </li>
+        
+      </ul>
+    </section>
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>Озеро Боровое (Бурабай) - Главное природное чудо региона.Чистая вода, лесные массивы, скалы и пляжи.Отлично подходит для купания, прогулок на лодке, рыбалки и фото на фоне живописных пейзажей.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>Город среди холмов — Кокшетау расположен на одноимённой возвышенности, с живописными холмами и лесами, что редко для степного Казахстана.</li>
+        <li>Боровое — жемчужина региона — близость к знаменитому озеру Боровое и национальному парку делает город популярным туристическим центром.</li>
+        <li>Историческое наследие — сохранились здания XIX века, памятники защитникам города, а также исторические объекты крепости.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

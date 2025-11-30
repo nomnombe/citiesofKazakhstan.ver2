@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rundyy - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section class="city-hero">
+    <div class="city-hero-content">
+        <h1 style="color: #FFD700;">Рудный</h1>
+      <p style="color: #FFD700">Город в Костанайской области Казахстана, промышленный центр региона</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Рудный</h2>
+      <p>Рудный - промышленный центр региона..</p>
+      <p><strong>Население:</strong> около 120 тыс  человек</p>
+      <p><strong>Основан:</strong> в 1957 году как промышленный центр для добычи железной руды.</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>В советское время город активно развивался как центр металлургии и добычи полезных ископаемых.Здесь находится крупный металлургический комбинат — один из крупнейших в Казахстане.Также развиты сопутствующие отрасли: строительство, торговля, транспорт.Рудный — молодой город по казахстанским меркам, но быстро стал крупным промышленным центром.</p>
+
+      <div class="photo-slider">
+        <img src="images/r1.jpg" alt="Старый Рудный" class="active">
+        <img src="images/r2.jpg" alt="Современный Рудный">
+        <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Достопримечательности -->
+    
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>Драматический театр,Музей истории города и металлургической промышленности.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>Название города напрямую связано с рудной промышленностью и добычей железной руды.</li>
+     
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

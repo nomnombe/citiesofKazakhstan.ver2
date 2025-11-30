@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Талдыкорган - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Города Казахстана</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История страны</a></li>
+      <li><a href="about.html">О нас</a></li>
+      <li><a href="karta.html">Карта</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="city-hero">
+  <div class="city-hero-content">
+   
+    <h1 style="color: #FFD700;">Талдыкорган</h1>
+      <p style="color: #FFD700">Сердце Алматинской области с богатой историей и культурой</p>
+  </div>
+</section>
+
+<main class="text-page">
+
+  <!-- Основная информация -->
+  <section class="text-section">
+    <h2>Талдыкорган</h2>
+    <p>Талдыкорган — административный центр Алматинской области, расположенный на юге Казахстана. Город сочетает современную архитектуру и исторические здания, а также является важным экономическим и культурным центром региона. Здесь проходят фестивали, спортивные мероприятия и культурные события, которые привлекают гостей со всей страны.</p>
+  </section>
+
+  <!-- История + Фотоплёнка -->
+  <section class="text-section">
+    <h2>История</h2>
+    <p>Талдыкорган известен с начала XX века как важный административный и торговый центр региона. Город развивался как транспортный узел и культурный центр, сохранив традиции казахского народа и архитектурные памятники.</p>
+
+    <div class="photo-slider">
+      <img src="images/taldyk-organ-old.jpg" alt="Старый Талдыкорган" class="active">
+      <img src="images/taldyk-organ-new.jpg" alt="Современный Талдыкорган">
+      <div class="slider-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Достопримечательности -->
+  <section id="taldyk-attractions">
+    <h2>Достопримечательности</h2>
+    <ul>
+      <li>
+        <img src="images/ilyas-museum.jpg" alt="Дом-музей Ильяса Жансугурова">
+        <p>Дом‑музей Ильяса Жансугурова — литературный музей, посвящённый поэту Ильясу Жансугурову.</p>
+      </li>
+      <li>
+        <img src="images/central-mosque.jpg" alt="Центральная мечеть Талдыкоргана">
+        <p>Центральная мечеть Талдыкоргана — главный мусульманский храм города.</p>
+      </li>
+      <li>
+        <img src="images/ush-ata.jpg" alt="Монумент Уш Ата">
+        <p>Монумент «Уш ата» — скульптурная композиция в честь трёх исторических личностей.</p>
+      </li>
+      <li>
+        <img src="images/karatal-river.jpg" alt="Набережная реки Каратал">
+        <p>Набережная реки Каратал — современная прогулочная зона вдоль реки.</p>
+      </li>
+      <li>
+        <img src="images/drama-theater 1.jpg" alt="Драматический театр имени Бикен Римовой">
+        <p>Драматический театр имени Бикен Римовой — культурная площадка с историей.</p>
+      </li>
+      <li>
+        <img src="images/saltanat-saray.jpg" alt="Салтанат сарайы">
+        <p>Салтанат сарайы — архитектурно выразительное здание для торжественных мероприятий.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Культура -->
+  <section class="text-section">
+    <h2>Культура</h2>
+    <p>Талдыкорган активно развивает культурную жизнь: здесь проходят театральные постановки, выставки, концерты и фестивали. Город объединяет современные здания и исторические памятники, сохраняя уникальный колорит региона.</p>
+  </section>
+
+  <!-- Интересные факты -->
+  <section class="text-section">
+    <h2>Интересные факты</h2>
+    <ul class="facts-grid">
+      <li>Город считается центром Алматинской области.</li>
+      <li>Набережная Каратал — любимое место отдыха жителей.</li>
+      <li>Талдыкорган активно развивается в экономическом и культурном плане.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+</footer>
+
+<script>
+  const slider = document.querySelector('.photo-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = slider.querySelector('#prev');
+  const nextBtn = slider.querySelector('#next');
+  let current = 0;
+
+  function showImage(index) {
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+  }
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+</script>
+
+</body>
+</html>

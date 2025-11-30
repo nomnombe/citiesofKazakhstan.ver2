@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astana - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="city-hero">
+    <div class="city-hero-content">
+    	<h1 style="color: #FFD700;">Астана</h1>
+    	<p style="color: #FFD700">Столица Республики Казахстан</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Астана</h2>
+      <p>Астана — крупнейший город и столица Казахстана.В 2017 году город стал центром мирового внимания благодаря ЭКСПО, посвящённому новым технологиям в энергетике..</p>
+      <p><strong>Население:</strong> около 1,3 миллионов человек</p>
+      <p><strong>Основан:</strong>  в 1824 году как укреплённое поселение Акмолинск.</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>Территория современного города была заселена людьми ещё в эпоху бронзы и Средневековья. Здесь проходили торговые пути Великого шелкового пути.1997 году Президент Казахстана Нурсултан Назарбаев принял решение перенести столицу из Алматы в Акмолу, чтобы стимулировать развитие северных регионов и создать более равномерное распределение населения.1998 году город получил название Астана, что в переводе с казахского означает «столица».В 2019 году Астана была переименована в Нур-Султан в честь первого президента Казахстана.На сегодняшний день город называется Астана.</p>
+
+      <div class="photo-slider">
+        <img src="images/astanastar.jpg" alt="Старая Астана" class="active">
+        <img src="images/astananov.jpg" alt="Современная Астана">
+        <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Достопримечательности -->
+    <section id="astana-attractions">
+
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/baiterek.jpg" alt="Байтерек">
+          <p>Байтерек - символ города и страны.</p>
+        </li>
+        <li>
+          <img src="images/han.jpg" alt="Хан Шатыр">
+          <p>Хан Шатыр - Огромный торгово-развлекательный центр в виде прозрачного шатра.</p>
+        </li>
+        <li>
+          <img src="images/dvor.jpg" alt="Дворец Мира и Согласия">
+          <p>Дворец Мира и Согласия - Пирамидальная постройка, символ гармонии всех религий.</p>
+        </li>
+        <li>
+          <img src="images/mus.jpg" alt="Национальный музей">
+          <p>Национальный музей РК - Крупнейший музей страны, открытый в 2014 году.</p>
+        </li>
+        <li>
+          <img src="images/ekspo.jpg" alt="ЭКСПО">
+          <p>ЭКСПО-2017 в Астане - международная выставка на тему «Энергия будущего», которая собрала более 100 стран и превратила город в центр инноваций и устойчивой энергетики.</p>
+        </li>
+           <li>
+          <img src="images/mechet.jpg" alt="Мечеть">
+          <p>Одна из крупнейших мечетей в СНГ: мрамор, купола, восточная архитектура.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>Культура Астаны  — это сочетание традиционного казахского наследия и современного урбанистического облика столицы. Город активно развивается как культурный центр страны.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>Город менял название 6 раз: Астана → Нур-Султан → Астана снова.
+До этого были названия: Акмолинск, Целиноград, Акмола.</li>
+        <li>Город считается «сердцем» казахстанского IT и креативных индустрий</li>
+        <li>Сильные порывы ветра — обычное дело, поэтому здания часто имеют аэродинамичную форму.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

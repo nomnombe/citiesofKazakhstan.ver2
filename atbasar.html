@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atbasar - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section class="city-hero">
+    <div class="city-hero-content">
+        <h1 style="color: #FFD700;">Атбасар</h1>
+      <p style="color: #FFD700">Административный центр Атбасарского района Акмолинской области</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Атбасар</h2>
+      <p>Атбасар - исторически известен как районный центр зернового региона.</p>
+      <p><strong>Население:</strong> около 25 - 30 тыс  человек</p>
+      <p><strong>Основан:</strong> в 19 веке как административный и торговый центр района.</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>Абасар - Город стоит на равнинной степной местности с небольшими лесными массивами.Исторически — центр сельского хозяйства и животноводства.В советское время Атбасар развивался как районный центр с небольшими промышленными предприятиями.</p>
+
+      <div class="photo-slider">
+        <img src="images/at1.jpg" alt=" Атбасар " class="active">
+        <img src="images/at2.jpg" alt="Атбасар ">
+          <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Достопримечательности -->
+    <section id="astana-attractions">
+
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/at3.jpg" alt="Историко-краеведческий музей Атбасара">
+          <p>Историко-краеведческий музей Атбасара - Главная культурная точка города.</p>
+        </li>
+      
+        
+      </ul>
+    </section>
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>Праздник Наурыз — национальные игры, концерты, ярмарки.
+Районные фестивали урожая — демонстрация сельскохозяйственной продукции, ремесел и традиций.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>Благодаря близости к железнодорожной линии город связан с крупными городами Казахстана.</li>
+        
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>

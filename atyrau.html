@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атырау - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Города Казахстана</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История страны</a></li>
+      <li><a href="about.html">О нас</a></li>
+      <li><a href="karta.html">Карта</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="city-hero">
+  <div class="city-hero-content">
+  
+    <h1 style="color: #FFD700;">Атырау</h1>
+      <p style="color: #FFD700">Город на берегу Каспийского моря</p>
+  </div>
+</section>
+<main class="text-page">
+
+  <!-- Основная информация -->
+  <section class="text-section">
+    <h2>Атырау</h2>
+    <p>Атырау — город в западной части Казахстана, расположенный на побережье Каспийского моря у впадения реки Урал. Город является важным промышленным и нефтяным центром страны.</p>
+    <p><strong>Население:</strong> около 300 тысяч человек</p>
+    <p><strong>Основан:</strong> 1640 год (как крепость Чага)</p>
+  </section>
+
+  <!-- История + фотоплёнка -->
+  <section class="text-section">
+    <h2>История</h2>
+    <p>Атырау имеет долгую историю, начиная с небольшого укреплённого поселения Чага, важного для торговли и контроля Каспийского побережья. В советское время город превратился в центр нефтяной промышленности и транспортной инфраструктуры, а сегодня сохраняет стратегическое значение для экономики Казахстана.</p>
+
+    <!-- фотоплёнка прямо здесь -->
+    <div class="photo-slider">
+      <img src="images/old-atyrau.jpg" alt="Старый Атырау" class="active">
+      <img src="images/new-atyrau.jpg" alt="Современный Атырау">
+      <div class="slider-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Достопримечательности -->
+  <section id="atyrau-attractions">
+    <h2>Достопримечательности</h2>
+    <ul>
+      <li>
+        <img src="images/uralsky-river.jpg" alt="Река Урал">
+        <p>Река Урал — символ города, разделяющая Европу и Азию</p>
+      </li>
+      <li>
+        <img src="images/atyrau-mosque.jpg" alt="Атырауская мечеть">
+        <p>Атырауская мечеть — архитектурная жемчужина города</p>
+      </li>
+      <li>
+        <img src="images/mangistau-museum.jpg" alt="Музей Мангистау">
+        <p>Региональный музей — хранит историю и культуру западного Казахстана</p>
+      </li>
+      <li>
+        <img src="images/caspian-sea.jpg" alt="Каспийское море">
+        <p>Каспийское море — популярное место отдыха и рыбалки</p>
+      </li>
+      <li>
+        <img src="images/park.jpg" alt="Городской парк">
+        <p>Городской парк — любимое место прогулок жителей</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Культура -->
+  <section class="text-section">
+    <h2>Культура</h2>
+    <p>Атырау активно развивает культурную жизнь: здесь проводятся фестивали, выставки и спортивные мероприятия. Город сочетает современные здания и исторические памятники.</p>
+  </section>
+
+  <!-- Интересные факты -->
+  <section class="text-section">
+    <h2>Интересные факты</h2>
+    <ul class="facts-grid">
+      <li>Атырау — единственный город Казахстана на двух континентах</li>
+      <li>Город известен как центр нефтяной промышленности страны</li>
+      <li>Здесь расположен один из крупнейших каспийских портов</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+</footer>
+
+<script>
+  const slider = document.querySelector('.photo-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = slider.querySelector('#prev');
+  const nextBtn = slider.querySelector('#next');
+  let current = 0;
+
+  function showImage(index) {
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+  }
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+</script>
+
+</body>
+</html>

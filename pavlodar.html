@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Павлодар - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Города Казахстана</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="history.html">История страны</a></li>
+      <li><a href="about.html">О нас</a></li>
+      <li><a href="karta.html">Карта</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="city-hero">
+  <div class="city-hero-content">
+   
+    <h1 style="color: #FFD700;">Павлодар</h1>
+      <p style="color: #FFD700">Сердце Прииртышья</p>
+  </div>
+</section>
+
+<main class="text-page">
+
+<!-- Основная информация -->
+<section class="text-section">
+  <h2>Павлодар</h2>
+  <p>Павлодар — сердце Прииртышья, город с богатой историей и современным развитием. Расположенный на берегах реки Иртыш, он сочетает промышленный потенциал, культурную жизнь и зелёные зоны для прогулок.</p>
+  <p><strong>Население:</strong> около 350 тысяч человек</p>
+  <p><strong>Основан:</strong> 1720 год (как крепость)</p>
+</section>
+
+
+  <!-- История + Фотоплёнка -->
+  <section class="history-slider">
+    <div class="text-section">
+      <h2>История</h2>
+      <p>Павлодар — город с богатой историей, который веками развивался на берегах Иртыша, сочетая торговые традиции и промышленное наследие региона.</p>
+    </div>
+
+    <div class="photo-slider">
+      <img src="images/pavlodar-old.jpg" alt="Старый Павлодар" class="active">
+      <img src="images/pavlodar-new.jpg" alt="Современный Павлодар">
+      <div class="slider-buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Достопримечательности -->
+  <section id="pavlodar-attractions">
+    <h2>Достопримечательности</h2>
+    <ul>
+      <li>
+        <img src="images/mashhur-mosque.jpg" alt="Мечеть имени Машхура Жусупа">
+        <p>Мечеть имени Машхура Жусупа — одна из крупнейших мечетей Казахстана, архитектурно выразительное здание.</p>
+      </li>
+      <li>
+        <img src="images/blagoveschensk-cathedral.jpg" alt="Благовещенский кафедральный собор">
+        <p>Благовещенский кафедральный собор — значимый архитектурный и исторический объект города.</p>
+      </li>
+      <li>
+        <img src="images/irtysh-embankment.jpg" alt="Набережная Иртыша">
+        <p>Набережная Иртыша — прогулочная зона вдоль реки Иртыш, одна из визитных карточек города.</p>
+      </li>
+      <li>
+        <img src="images/zaicev-house.jpg" alt="Дом купца Зайцева">
+        <p>Дом купца Зайцева — памятник деревянного зодчества XIX века, старинная постройка Павлодара.</p>
+      </li>
+      <li>
+        <img src="images/drama-theater.jpg" alt="Павлодарский областной драматический театр">
+        <p>Павлодарский областной драматический театр имени А. П. Чехова — культурная площадка с историей.</p>
+      </li>
+      <li>
+        <img src="images/potanin-museum.jpg" alt="Историко‑краеведческий музей">
+        <p>Историко‑краеведческий музей имени Г. Н. Потанина — рассказывает об истории региона.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Культура -->
+  <section class="text-section">
+    <h2>Культура</h2>
+    <p>Павлодар активно развивает культурную жизнь: проходят фестивали, выставки и спортивные мероприятия. Город сочетает современные здания и исторические памятники.</p>
+  </section>
+
+  <!-- Интересные факты -->
+  <section class="text-section">
+    <h2>Интересные факты</h2>
+    <ul class="facts-grid">
+      <li>Павлодар — крупный промышленный центр Казахстана.</li>
+      <li>Город находится на берегах реки Иртыш, важного водного пути страны.</li>
+      <li>В Павлодаре сохранилось множество памятников деревянного зодчества XIX века.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+</footer>
+
+<script>
+  const slider = document.querySelector('.photo-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = slider.querySelector('#prev');
+  const nextBtn = slider.querySelector('#next');
+  let current = 0;
+
+  function showImage(index) {
+    images.forEach((img, i) => img.classList.toggle('active', i === index));
+  }
+
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+</script>
+
+</body>
+</html>

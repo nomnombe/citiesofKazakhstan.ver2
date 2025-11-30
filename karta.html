@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Карта Казахстана</title>
+
+  <!-- Подключаем Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Подключаем твои стили -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+
+
+    nav a.active,
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    #map {
+      height: 80vh;
+      width: 90%;
+      margin: 30px auto;
+      border: 3px solid #0077ff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 119, 255, 0.4);
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: #f0f8ff;
+      border-radius: 12px;
+      border: 2px solid #0077ff;
+    }
+
+    .leaflet-popup-content h3 {
+      color: #004aad;
+      margin: 0 0 5px;
+    }
+
+    .leaflet-popup-content p {
+      margin: 0 0 10px;
+    }
+
+    .popup-btn {
+      display: inline-block;
+      background: #004aad;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .popup-btn:hover {
+      background: #0077ff;
+    }
+
+    /* ⬇️ Добавь сюда */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    body {
+        padding-top: 120px;
+    }
+
+    /* остальные стили */
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Карта городов Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html" class="active">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Контейнер для карты -->
+  <div id="map"></div>
+
+  <footer>
+    <p>© 2025 Города Казахстана</p>
+  </footer>
+
+  <!-- Скрипт карты -->
+  <script>
+    // Создаём карту с центром на Казахстане
+    var map = L.map('map').setView([48.0, 66.9], 5);
+
+    // Добавляем слой с OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 10,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Массив городов
+const cities = [
+  {
+    name: "Астана",
+    coords: [51.1605, 71.4704],
+    text: "Столица Казахстана — центр политики, культуры и инноваций."
+  },
+  {
+    name: "Алматы",
+    coords: [43.2389, 76.8897],
+    text: "Крупнейший город страны и культурная столица Казахстана."
+  },
+  {
+    name: "Шымкент",
+    coords: [42.3155, 69.5869],
+    text: "Третий мегаполис Казахстана с тёплым климатом и развитой инфраструктурой."
+  },
+  {
+    name: "Караганда",
+    coords: [49.806, 73.085],
+    text: "Промышленный центр страны, сердце угольной отрасли."
+  },
+  {
+    name: "Актобе",
+    coords: [50.283, 57.166],
+    text: "Крупный город Западного Казахстана с развитой промышленностью."
+  },
+  {
+    name: "Павлодар",
+    coords: [52.287, 76.9674],
+    text: "Индустриальный центр на северо-востоке Казахстана."
+  },
+  {
+    name: "Семей",
+    coords: [50.411, 80.2275],
+    text: "Исторический культурный центр, родина Абая."
+  },
+  {
+    name: "Костанай",
+    coords: [53.2198, 63.6354],
+    text: "Северный город, известный сельским хозяйством и индустрией."
+  },
+  {
+    name: "Кызылорда",
+    coords: [44.8526, 65.5093],
+    text: "Город на реке Сырдарья, важный центр южного региона."
+  },
+  {
+    name: "Атырау",
+    coords: [47.116, 51.883],
+    text: "Нефтяная столица Казахстана, город на границе Европы и Азии."
+  },
+  {
+    name: "Актау",
+    coords: [43.65, 51.1975],
+    text: "Каспийский портовый город с уникальными пляжами."
+  },
+  {
+    name: "Петропавловск",
+    coords: [54.87, 69.09],
+    text: "Северный город с богатой историей и архитектурой XIX века."
+  },
+  {
+    name: "Талдыкорган",
+    coords: [45.0167, 78.3667],
+    text: "Центр Жетысуской области, динамично развивающийся город."
+  },
+  {
+    name: "Кокшетау",
+    coords: [53.2833, 69.4],
+    text: "Живописный город у подножия гор и озёр Кокшетауского национального парка."
+  },
+  {
+    name: "Туркестан",
+    coords: [43.2973, 68.2517],
+    text: "Духовная столица Казахстана, город-мавзолей Ходжи Ахмеда Яссауи."
+  },
+  {
+    name: "Тараз",
+    coords: [42.9, 71.366],
+    text: "Один из древнейших городов Центральной Азии, более 2000 лет истории."
+  },
+  {
+    name: "Усть-Каменогорск",
+    coords: [49.9483, 82.6274],
+    text: "Центр Восточного Казахстана, известный природой и горами."
+  },
+  {
+    name: "Экибастуз",
+    coords: [51.6667, 75.3667],
+    text: "Крупный энергетический центр страны с богатой угольной базой."
+  },
+  {
+    name: "Темиртау",
+    coords: [50.0549, 72.9646],
+    text: "Промышленный город, где расположен крупный металлургический комбинат."
+  },
+  {
+    name: "Жезказган",
+    coords: [47.803, 67.711],
+    text: "Центр медной промышленности Казахстана."
+  },
+  {
+    name: "Балхаш",
+    coords: [46.8481, 74.995],
+    text: "Город на знаменитом озере Балхаш, важный промышленный центр."
+  },
+  {
+    name: "Рудный",
+    coords: [52.9723, 63.116],
+    text: "Город горнодобывающей промышленности в Костанайской области."
+  },
+  {
+    name: "Аральск",
+    coords: [46.8, 61.6667],
+    text: "Город на территории Арала, известный экологической историей региона."
+  },
+  {
+    name: "Кульсары",
+    coords: [46.955, 54.02],
+    text: "Центр Жылыойского района, важный город нефтяной отрасли."
+  },
+  {
+    name: "Сатпаев",
+    coords: [47.9, 67.5333],
+    text: "Город в Карагандинской области, известный как центр горнодобычи."
+  }
+];
+
+    // Добавляем маркеры
+    cities.forEach(city => {
+      L.marker(city.coords)
+        .addTo(map)
+        .bindPopup(`
+          <div class="popup-box">
+            <h3>${city.name}</h3>
+            <p>${city.text}</p>
+          </div>
+        `);
+    });
+
+    // Добавляем контур Казахстана
+    fetch("https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/kazakhstan.geojson")
+      .then(res => res.json())
+      .then(data => {
+        const border = L.geoJSON(data, {
+          style: {
+            color: "#00ffff",
+            weight: 3,
+            opacity: 0.9,
+            fillOpacity: 0
+          }
+        }).addTo(map);
+        border.bringToBack();
+      })
+      .catch(err => console.error("Ошибка загрузки границы:", err));
+  </script>
+</body>
+</html>
+

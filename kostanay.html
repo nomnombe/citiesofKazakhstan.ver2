@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Костанай - Города Казахстана</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- === Шапка сайта === -->
+  <header>
+    <h1>Города Казахстана</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="history.html">История страны</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="karta.html">Карта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Верхний блок для Костаная -->
+  <section class="city-hero">
+    <div class="city-hero-content">
+    
+      <h1 style="color: #FFD700;">Костанай</h1>
+      <p style="color: #FFD700">Северная жемчужина Казахстана</p>
+    </div>
+  </section>
+
+  <!-- === Основной контент === -->
+  <main class="text-page">
+    
+    <!-- Основная информация -->
+    <section>
+      <h2>Костанай</h2>
+      <p>Костанай — крупный город на севере Казахстана, административный центр Костанайской области. Город активно развивается в промышленной и культурной сферах.</p>
+      <p><strong>Население:</strong> около 240 тысяч человек</p>
+      <p><strong>Основан:</strong> 1879 год</p>
+    </section>
+
+    <!-- История с фотоплёнкой -->
+    <section>
+      <h2>История</h2>
+      <p>Костанай основан как станция на Транссибирской железной дороге. Город развивался как центр сельского хозяйства и торговли, а позже стал промышленным и культурным центром северного Казахстана.</p>
+
+      <div class="photo-slider">
+        <img src="images/old-kostanay.jpg" alt="Старый Костанай" class="active">
+        <img src="images/new-kostanay.jpg" alt="Современный Костанай">
+        <div class="slider-buttons">
+          <button id="prev">&lt;</button>
+          <button id="next">&gt;</button>
+        </div>
+      </div>
+    </section>
+<!-- Достопримечательности -->
+    <section id="kostanay-attractions">
+      <h2>Достопримечательности</h2>
+      <ul>
+        <li>
+          <img src="images/kostanay-museum.jpg" alt="Областной краеведческий музей">
+          <p>Областной краеведческий музей— музей с археологическими находками и экспонатами истории области</p>
+        </li>
+        <li>
+          <img src="images/park-pobedy.jpg" alt="Парк победы">
+          <p>Парк победы — центральный городской парк с памятниками и зоной отдыха</p>
+        </li>
+        <li>
+          <img src="images/kostanay-theatre.jpg" alt="Областной казахский театр драмы им. И. Омарова">
+          <p>Областной казахский театр драмы им. И. Омарова - культурный центр города</p>
+        </li>
+        <li>
+          <img src="images/kostanay-mosque.jpg" alt="Мечеть имени Марал-ишана">
+          <p>Мечеть имени Марал-ишана-историческое культовое здание города</p>
+        </li>
+        <li>
+          <img src="images/kostanay-river.jpg" alt="Набережная реки Тобол">
+          <p>Набережная реки Тобол-популярное место отдыха</p>
+        </li>
+        <li>
+          <img src="images/kostanay-monument.jpg" alt="Монумент Покорителям целины">
+          <p>Монумент "Покоритерям целины"-символ трудовых подвигов костанайцев</p>
+        </li>
+      </ul>
+    </section>
+ 
+
+    <!-- Культура -->
+    <section>
+      <h2>Культура</h2>
+      <p>Костанай известен как центр культуры и образования северного Казахстана. Здесь проходят театральные постановки, выставки и музыкальные фестивали. Много библиотек и галерей для любителей искусства.</p>
+    </section>
+
+    <!-- Интересные факты -->
+    <section>
+      <h2>Интересные факты</h2>
+      <ul>
+        <li>Костанай был основан как железнодорожная станция в 1879 году</li>
+        <li>Город активно развивается в сфере сельского хозяйства и образования</li>
+        <li>В Костанае находится крупнейший в регионе драматический театр</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- === Подвал сайта === -->
+  <footer>
+    <p>&copy; 2025 Города Казахстана. Все права защищены.</p>
+  </footer>
+
+  <!-- === Скрипт для фотоплёнки === -->
+  <script>
+    const slider = document.querySelector('.photo-slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('#prev');
+    const nextBtn = slider.querySelector('#next');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    });
+  </script>
+
+</body>
+</html>
+
+
